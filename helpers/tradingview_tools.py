@@ -14,7 +14,7 @@ from typing import Any
 from langchain.tools import tool
 
 # Add TradingView MCP source to Python path
-_mcp_path = Path(__file__).parent.parent / "mcp" / "tradingview-mcp-main" / "src"
+_mcp_path = Path(__file__).parent.parent / "tradingview-mcp-main" / "src"
 if str(_mcp_path) not in sys.path:
     sys.path.insert(0, str(_mcp_path))
 
