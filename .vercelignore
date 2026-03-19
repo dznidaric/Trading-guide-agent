@@ -1,0 +1,43 @@
+# Exclude files from Vercel deployment to reduce size
+# These files are not needed for production runtime
+
+# Development files
+notebooks/
+*.ipynb
+*.ipynb_checkpoints
+
+# Documentation (keep docs/ for BM25 retriever)
+*.md
+*.docx
+*.pdf
+!README.md
+docs/
+
+# Development dependencies
+.env.example
+env.example
+.git/
+.gitignore
+
+# Build artifacts (handled by Vercel)
+.next/
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+tests/
+test_*.py
+*_test.py
+
+# Other
+frontend/
+proxy.py

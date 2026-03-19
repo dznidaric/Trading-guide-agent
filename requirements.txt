@@ -1,0 +1,46 @@
+# Production dependencies for Vercel deployment
+# This file is used by Vercel to install Python packages for serverless functions.
+# Development-only packages (jupyter, ragas, openevals, nltk, langchain-experimental) 
+# are excluded to reduce size and stay under Lambda's 500 MB ephemeral storage limit.
+# BM25 retrieval removed - replaced with parent-child retrieval (no PDF loading required).
+
+# Web framework
+fastapi>=0.115.12
+uvicorn>=0.34.2
+python-multipart>=0.0.18
+
+# Core dependencies
+pydantic>=2.11.4
+python-dotenv>=1.0.0
+
+# LangChain core
+langchain>=1.0.0
+langchain-core>=0.3.0
+langchain-openai>=0.3.0
+langchain-text-splitters>=0.3.0
+langchain-qdrant>=0.2.0
+langchain-classic>=0.1.0
+# Note: langchain-community removed (~200-300 MB) - not used in production code
+
+# LangGraph (agent orchestration)
+langgraph>=0.3.0
+langgraph-checkpoint>=2.0
+# langgraph-checkpoint-redis>=0.0.1  # Only needed if REDIS_URL is set - install separately if needed
+
+# Vector database
+qdrant-client>=1.13.2
+
+# Web search (optional - comment out if build fails, web_search tool will gracefully degrade)
+# tavily>=1.1.0  # Note: May not have binary wheels - install separately if needed
+
+# Observability (optional - only needed if LANGCHAIN_API_KEY is set)
+# langsmith>=0.2.0  # Commented out to reduce size - uncomment if you need LangSmith tracing
+
+# OpenAI (for embeddings and chat)
+openai
+
+# TradingView MCP tools (for market data and technical analysis)
+# Note: mcp package is required for importing TradingView MCP server functions
+mcp[cli]>=1.12.0
+tradingview-screener>=0.6.4
+tradingview-ta>=3.3.0
