@@ -11,11 +11,6 @@ import os
 from dotenv import load_dotenv
 from langchain.agents import create_agent
 from langchain.tools import tool
-from langchain_openai import OpenAIEmbeddings
-from langchain_qdrant import QdrantVectorStore
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_classic.retrievers import ParentDocumentRetriever
-from qdrant_client import QdrantClient
 from langgraph.checkpoint.memory import MemorySaver
 # Tavily import - optional, gracefully handles if package unavailable
 try:
